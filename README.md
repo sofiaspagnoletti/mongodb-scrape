@@ -6,7 +6,7 @@ The user is able to leave and delete comments on the displayed articles and revi
 Each scraped article and its comments are saved in the application database. 
 
 ### Prerequisites
-The user can access this application by open the following link in any browser: 
+The user can access this application by opening the following link in any browser: 
 
 ### Built With
 Express, Express-handlebars, Mongoose, Cheerio and Axios.
