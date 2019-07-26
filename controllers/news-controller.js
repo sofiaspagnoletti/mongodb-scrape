@@ -3,29 +3,28 @@ var express = require("express");
 
 var router = express.Router();
 
-var news = require("../models/index");
+var db = require("../models");
 
 router.get("/", function(req, res) {
-  res.render("index", {
-    Articles: [
-      {
-        headline: "some headline",
-        summary: "lorem ipsum",
-        url: "www.google.com"
-      },
-      {
-        headline: "some other headline",
-        summary: "lorem ipsum v2",
-        url: "www.seatletimes.com"
-      }
-    ]
-  });
-  // news.all(function(data) {
-  //   var hbsObject = {
-  //     news: data
-  //   };
-  //   console.log(hbsObject);
-  //   res.render("index", hbsObject);
+    db.Article.find({}, function (err, data) {
+      console.log("Length is " + data.length);
+      res.render("index", {
+        Articles: data
+      });
+    });
+  // res.render("index", {
+  //   Articles: [
+  //     {
+  //       title: "some headline",
+  //       summary: "lorem ipsum",
+  //       url: "www.google.com"
+  //     },
+  //     {
+  //       title: "some other headline",
+  //       summary: "lorem ipsum v2",
+  //       url: "www.seatletimes.com"
+  //     }
+  //   ]
   // });
 });
 
